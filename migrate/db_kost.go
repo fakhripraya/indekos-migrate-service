@@ -2,7 +2,7 @@ package migrate
 
 import "time"
 
-// DBKost is an entity that directly communicate with the Kost table in the database
+// DBKost will migrate a kost table with the given specification into the database
 type DBKost struct {
 	ID         uint      `gorm:"primary_key;autoIncrement;not null" json:"id"`
 	OwnerID    uint      `gorm:"not null" json:"owner_id"`
@@ -19,7 +19,7 @@ type DBKost struct {
 	ModifiedBy string    `json:"modified_by"`
 }
 
-// DBKostRoom is an entity that directly communicate with the KostRoom table in the database
+// DBKostRoom will migrate a kost room table with the given specification into the database
 type DBKostRoom struct {
 	ID         uint      `gorm:"primary_key;autoIncrement;not null" json:"id"`
 	KostID     string    `gorm:"not null" json:"type_code"`
@@ -31,7 +31,7 @@ type DBKostRoom struct {
 	ModifiedBy string    `json:"modified_by"`
 }
 
-// DBKostFacilities is an entity that directly communicate with the KostFacilities table in the database
+// DBKostFacilities will migrate a kost facilities table with the given specification into the database
 type DBKostFacilities struct {
 	FacID      uint      `gorm:"not null" json:"fac_id"`
 	KostID     uint      `gorm:"not null" json:"kost_id"`

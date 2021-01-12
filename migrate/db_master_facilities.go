@@ -2,7 +2,7 @@ package migrate
 
 import "time"
 
-// MasterFacilities is an entity that directly communicate with the Facilities table in the database
+// MasterFacilities will migrate a master facilities table with the given specification into the database
 type MasterFacilities struct {
 	ID         uint      `gorm:"primary_key;autoIncrement;not null" json:"id"`
 	FacCode    string    `gorm:"not null" json:"fac_code"`
