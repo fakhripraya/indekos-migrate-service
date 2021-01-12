@@ -6,8 +6,6 @@ type Configuration struct {
 	Database   DatabaseConfiguration
 	Jwt        JwtConfiguration
 	MySQLStore MySQLStoreConfiguration
-	EmailgRPC  EmailgRPCConfiguration
-	WAgRPC     WAgRPCConfiguration
 }
 
 // APIConfiguration is an entity that stores the app configuration
@@ -35,16 +33,4 @@ type JwtConfiguration struct {
 // MySQLStoreConfiguration is an entity that stores the MySqlStore secret
 type MySQLStoreConfiguration struct {
 	Secret string
-}
-
-// EmailgRPCConfiguration is an entity that stores the Email gRPC service configuration
-type EmailgRPCConfiguration struct {
-	Host string
-	Port string
-}
-
-// WAgRPCConfiguration is an entity that stores the WhatsApp gRPC service configuration
-type WAgRPCConfiguration struct {
-	Host string
-	Port string
 }

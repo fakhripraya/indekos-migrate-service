@@ -11,9 +11,13 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/jinzhu/gorm"
 	"github.com/joho/godotenv"
+	"github.com/srinathgs/mysqlstore"
 )
 
 var err error
+
+// Session Store based on MYSQL database
+var sessionStore *mysqlstore.MySQLStore
 
 func main() {
 
