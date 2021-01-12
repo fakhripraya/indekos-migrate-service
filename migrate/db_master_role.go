@@ -5,7 +5,7 @@ import "time"
 // MasterRole will migrate a master role table with the given specification into the database
 type MasterRole struct {
 	ID         uint      `gorm:"primaryKey;not null;autoIncrement" json:"id"`
-	Name       string    `gorm:"unique;not null" json:"role_name"`
+	RoleName   string    `gorm:"unique;not null" json:"role_name"`
 	IsActive   bool      `gorm:"default:true" json:"is_active"`
 	Created    time.Time `gorm:"type:datetime" json:"created"`
 	CreatedBy  string    `json:"created_by"`
