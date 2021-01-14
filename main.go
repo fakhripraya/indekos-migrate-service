@@ -47,15 +47,17 @@ func main() {
 
 	config.DB.Set("gorm:table_options", "ENGINE=InnoDB").AutoMigrate(
 		&migrate.MasterUser{},
-		&migrate.MasterUserLogin{},
-		&migrate.MasterAccess{},
 		&migrate.MasterRole{},
-		&migrate.MasterRoleAccess{},
+		&migrate.MasterAccess{},
+		&migrate.MasterUserLogin{},
 		&migrate.MasterKostType{},
+		&migrate.MasterRoleAccess{},
 		&migrate.MasterFacilities{},
 		&migrate.MasterStatusKost{},
+		&migrate.MasterUOM{},
 		&migrate.DBKost{},
 		&migrate.DBKostRoom{},
+		&migrate.DBKostRoomPict{},
 		&migrate.DBKostFacilities{},
 	)
 }
