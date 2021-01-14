@@ -18,18 +18,33 @@ type DBKost struct {
 	IsVerified    bool      `gorm:"not null;default:false" json:"is_verified"`
 	IsActive      bool      `gorm:"not null;default:true" json:"is_active"`
 	StatusAktif   uint64    `gorm:"not null;default:0" json:"status_aktif"`
+	ThumbnailURL  string    `json:"thumbnail_url"`
 	Created       time.Time `gorm:"type:datetime" json:"created"`
 	CreatedBy     string    `json:"created_by"`
 	Modified      time.Time `gorm:"type:datetime" json:"modified"`
 	ModifiedBy    string    `json:"modified_by"`
 }
 
-// DBKostRoom is an entity that directly communicate with the KostRoom table in the database
+// DBKostRoom will migrate a kost room table with the given specification into the database
 type DBKostRoom struct {
 	ID         uint      `gorm:"primary_key;autoIncrement;not null" json:"id"`
-	KostID     string    `gorm:"not null" json:"type_code"`
+	KostID     uint      `gorm:"not null" json:"kost_id"`
 	RoomDesc   string    `gorm:"not null" json:"room_desc"`
 	RoomPrice  string    `gorm:"not null" json:"room_price"`
+	RoomArea   uint64    `gorm:"not null" json:"room_area"`
+	IsActive   bool      `gorm:"not null;default:true" json:"is_active"`
+	Created    time.Time `gorm:"type:datetime" json:"created"`
+	CreatedBy  string    `json:"created_by"`
+	Modified   time.Time `gorm:"type:datetime" json:"modified"`
+	ModifiedBy string    `json:"modified_by"`
+}
+
+// DBKostRoomPict will migrate a kost room pict table with the given specification into the database
+type DBKostRoomPict struct {
+	ID         uint      `gorm:"primary_key;autoIncrement;not null" json:"id"`
+	RoomID     uint      `gorm:"not null" json:"room_id"`
+	PictDesc   string    `gorm:"not null" json:"pict_desc"`
+	URL        string    `gorm:"not null" json:"url"`
 	IsActive   bool      `gorm:"not null;default:true" json:"is_active"`
 	Created    time.Time `gorm:"type:datetime" json:"created"`
 	CreatedBy  string    `json:"created_by"`
@@ -55,6 +70,11 @@ func (dbKost *DBKost) KostTable() string {
 // KostRoomTable set the migrated struct table name
 func (dbKostRoom *DBKostRoom) KostRoomTable() string {
 	return "dbKostRoom"
+}
+
+// KostRoomPictTable set the migrated struct table name
+func (dbKostRoomPict *DBKostRoomPict) KostRoomPictTable() string {
+	return "dbKostRoomPict"
 }
 
 // KostFacilitiesTable set the migrated struct table name

@@ -5,7 +5,6 @@ import "time"
 // MasterFacilities will migrate a master facilities table with the given specification into the database
 type MasterFacilities struct {
 	ID         uint      `gorm:"primary_key;autoIncrement;not null" json:"id"`
-	FacCode    string    `gorm:"not null" json:"fac_code"`
 	FacName    string    `gorm:"not null" json:"fac_name"`
 	IsActive   bool      `gorm:"not null;default:true" json:"is_active"`
 	Created    time.Time `gorm:"type:datetime" json:"created"`
