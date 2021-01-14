@@ -45,7 +45,7 @@ func main() {
 
 	defer config.DB.Close()
 
-	config.DB.Set("gorm:table_options", "ENGINE=InnoDB").AutoMigrate(
+	err = config.DB.Set("gorm:table_options", "ENGINE=InnoDB").AutoMigrate(
 		&migrate.MasterUser{},
 		&migrate.MasterRole{},
 		&migrate.MasterAccess{},
@@ -56,8 +56,14 @@ func main() {
 		&migrate.MasterStatusKost{},
 		&migrate.MasterUOM{},
 		&migrate.DBKost{},
+		&migrate.DBKostPict{},
 		&migrate.DBKostRoom{},
+		&migrate.DBKostRoomDetail{},
 		&migrate.DBKostRoomPict{},
 		&migrate.DBKostFacilities{},
-	)
+	).Error
+
+	if err != nil {
+		log.Fatal(err)
+	}
 }

@@ -8,6 +8,7 @@ require (
 	github.com/gorilla/sessions v1.2.1 // indirect
 	github.com/hashicorp/go-hclog v0.15.0
 	github.com/jinzhu/gorm v1.9.16
+	github.com/jinzhu/now v1.1.1 // indirect
 	github.com/joho/godotenv v1.3.0
 	github.com/magiconair/properties v1.8.4 // indirect
 	github.com/mitchellh/mapstructure v1.4.0 // indirect
