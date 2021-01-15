@@ -53,7 +53,7 @@ func main() {
 		&migrate.MasterKostType{},
 		&migrate.MasterRoleAccess{},
 		&migrate.MasterFacilities{},
-		&migrate.MasterStatusKost{},
+		&migrate.MasterStatus{},
 		&migrate.MasterUOM{},
 		&migrate.DBKost{},
 		&migrate.DBKostPict{},
