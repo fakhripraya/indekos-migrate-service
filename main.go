@@ -34,7 +34,12 @@ func main() {
 
 	// Initialize app configuration
 	var appConfig entities.Configuration
-	data.ConfigInit(&appConfig)
+	err = data.ConfigInit(&appConfig)
+
+	if err != nil {
+		// log the fatal error if config init failed
+		log.Fatal(err)
+	}
 
 	// Open the database connection based on DB configuration
 	logger.Info("Establishing database connection on " + appConfig.Database.Host + ":" + strconv.Itoa(appConfig.Database.Port))
@@ -53,9 +58,9 @@ func main() {
 		&migrate.MasterKostType{},
 		&migrate.MasterRoleAccess{},
 		&migrate.MasterFacilities{},
-		&migrate.MasterStatus{},
 		&migrate.MasterUOM{},
 		&migrate.DBKost{},
+		&migrate.DBKostPeriod{},
 		&migrate.DBKostPict{},
 		&migrate.DBKostRoom{},
 		&migrate.DBKostRoomDetail{},
