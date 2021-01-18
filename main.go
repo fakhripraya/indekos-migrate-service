@@ -53,12 +53,14 @@ func main() {
 	err = config.DB.Set("gorm:table_options", "ENGINE=InnoDB").AutoMigrate(
 		&migrate.MasterUser{},
 		&migrate.MasterRole{},
+		&migrate.MasterUOM{},
 		&migrate.MasterAccess{},
+		&migrate.MasterPeriod{},
 		&migrate.MasterUserLogin{},
 		&migrate.MasterKostType{},
 		&migrate.MasterRoleAccess{},
 		&migrate.MasterFacilities{},
-		&migrate.MasterUOM{},
+		&migrate.MasterPaymentMethod{},
 		&migrate.DBKost{},
 		&migrate.DBKostPeriod{},
 		&migrate.DBKostPict{},
@@ -66,6 +68,10 @@ func main() {
 		&migrate.DBKostRoomDetail{},
 		&migrate.DBKostRoomPict{},
 		&migrate.DBKostFacilities{},
+		&migrate.DBTransaction{},
+		&migrate.DBTransactionDetail{},
+		&migrate.DBTransactionRoomBook{},
+		&migrate.DBTransactionRoomBookMember{},
 	).Error
 
 	if err != nil {
