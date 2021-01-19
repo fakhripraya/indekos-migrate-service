@@ -13,7 +13,7 @@ type DBTransactionRoomBook struct {
 	Status       uint      `gorm:"not null" json:"status"`
 	BookCode     string    `gorm:"not null" json:"book_code"`
 	BookDate     time.Time `gorm:"not null" json:"book_date"`
-	IsActive     bool      `gorm:"default:true" json:"is_active"`
+	IsActive     bool      `gorm:"not null;default:true" json:"is_active"`
 	Created      time.Time `gorm:"type:datetime" json:"created"`
 	CreatedBy    string    `json:"created_by"`
 	Modified     time.Time `gorm:"type:datetime" json:"modified"`
@@ -27,7 +27,7 @@ type DBTransactionRoomBookMember struct {
 	MemberName string    `gorm:"not null" json:"member_name"`
 	Phone      string    `json:"phone"`
 	Gender     bool      `gorm:"not null" json:"gender"`
-	IsActive   bool      `gorm:"default:true" json:"is_active"`
+	IsActive   bool      `gorm:"not null;default:true" json:"is_active"`
 	Created    time.Time `gorm:"type:datetime" json:"created"`
 	CreatedBy  string    `json:"created_by"`
 	Modified   time.Time `gorm:"type:datetime" json:"modified"`
