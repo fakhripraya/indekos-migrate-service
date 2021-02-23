@@ -61,6 +61,8 @@ func main() {
 		&migrate.MasterRoleAccess{},
 		&migrate.MasterFacilities{},
 		&migrate.MasterPaymentMethod{},
+		&migrate.MasterEvent{},
+		&migrate.MasterEventDetail{},
 		&migrate.DBKost{},
 		&migrate.DBKostPeriod{},
 		&migrate.DBKostPict{},
