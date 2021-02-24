@@ -17,7 +17,6 @@ type DBKost struct {
 	Longitude     string    `gorm:"not null" json:"longitude"`
 	UpRate        uint64    `json:"up_rate"`
 	UpRateExpired time.Time `json:"up_rate_expired"`
-	Rate          float64   `json:"rate"`
 	ThumbnailURL  string    `json:"thumbnail_url"`
 	IsVerified    bool      `gorm:"not null;default:false" json:"is_verified"`
 	IsActive      bool      `gorm:"not null;default:true" json:"is_active"`
@@ -107,6 +106,22 @@ type DBKostFacilities struct {
 	ModifiedBy string    `json:"modified_by"`
 }
 
+// DBKostReview will migrate a kost review table with the given specification into the database
+type DBKostReview struct {
+	ID          uint      `gorm:"primary_key;autoIncrement;not null" json:"id"`
+	KostID      uint      `gorm:"not null" json:"owner_id"`
+	UserID      uint      `gorm:"not null" json:"user_id"`
+	Cleanliness float64   `json:"cleanliness"`
+	Convenience float64   `json:"convenience"`
+	Security    float64   `json:"security"`
+	Facilities  float64   `json:"facilities"`
+	IsActive    bool      `gorm:"not null;default:true" json:"is_active"`
+	Created     time.Time `gorm:"type:datetime" json:"created"`
+	CreatedBy   string    `json:"created_by"`
+	Modified    time.Time `gorm:"type:datetime" json:"modified"`
+	ModifiedBy  string    `json:"modified_by"`
+}
+
 // KostTable set the migrated struct table name
 func (dbKost *DBKost) KostTable() string {
 	return "dbKost"
@@ -140,4 +155,9 @@ func (dbKostRoomPict *DBKostRoomPict) KostRoomPictTable() string {
 // KostFacilitiesTable set the migrated struct table name
 func (dbKostFacilities *DBKostFacilities) KostFacilitiesTable() string {
 	return "dbKostFacilities"
+}
+
+// KostReviewTable set the migrated struct table name
+func (dbKostReview *DBKostReview) KostReviewTable() string {
+	return "dbKostReview"
 }

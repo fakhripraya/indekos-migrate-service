@@ -70,6 +70,7 @@ func main() {
 		&migrate.DBKostRoomDetail{},
 		&migrate.DBKostRoomPict{},
 		&migrate.DBKostFacilities{},
+		&migrate.DBKostReview{},
 		&migrate.DBTransaction{},
 		&migrate.DBTransactionDetail{},
 		&migrate.DBTransactionRoomBook{},
