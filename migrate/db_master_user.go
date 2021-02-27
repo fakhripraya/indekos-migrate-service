@@ -11,6 +11,7 @@ type MasterUser struct {
 	Password       []byte    `gorm:"not null" json:"password"`
 	Email          string    `json:"email"`
 	Phone          string    `json:"phone"`
+	ProfilePicture string    `json:"profile_picture"`
 	LoginFailCount uint      `gorm:"default:0"`
 	IsVerified     bool      `gorm:"not null;default:false" json:"is_verified"`
 	IsActive       bool      `gorm:"not null;default:true" json:"is_active"`

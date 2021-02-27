@@ -116,6 +116,7 @@ type DBKostReview struct {
 	Convenience float64   `json:"convenience"`
 	Security    float64   `json:"security"`
 	Facilities  float64   `json:"facilities"`
+	Comments    string    `json:"comments"`
 	IsActive    bool      `gorm:"not null;default:true" json:"is_active"`
 	Created     time.Time `gorm:"type:datetime" json:"created"`
 	CreatedBy   string    `json:"created_by"`
