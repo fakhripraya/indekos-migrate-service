@@ -59,6 +59,8 @@ type DBKostRoom struct {
 	RoomDesc     string    `gorm:"not null" json:"room_desc"`
 	RoomPrice    float64   `gorm:"not null" json:"room_price"`
 	RoomPriceUOM uint      `gorm:"not null" json:"room_price_uom"`
+	RoomLength   float64   `gorm:"not null" json:"room_length"`
+	RoomWidth    float64   `gorm:"not null" json:"room_width"`
 	RoomArea     float64   `gorm:"not null" json:"room_area"`
 	RoomAreaUOM  uint      `gorm:"not null" json:"room_area_uom"`
 	MaxPerson    uint      `gorm:"not null" json:"max_person"`
