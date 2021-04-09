@@ -78,6 +78,7 @@ func main() {
 		&migrate.DBKostRoomFacilities{},
 		&migrate.DBTransaction{},
 		&migrate.DBTransactionDetail{},
+		&migrate.DBTransactionVerification{},
 		&migrate.DBTransactionRoomBook{},
 		&migrate.DBTransactionRoomBookMember{},
 	).Error
