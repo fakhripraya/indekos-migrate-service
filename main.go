@@ -84,6 +84,8 @@ func main() {
 		&migrate.DBTransactionVerification{},
 		&migrate.DBTransactionRoomBook{},
 		&migrate.DBTransactionRoomBookMember{},
+		&migrate.DBKostAds{},
+		&migrate.DBKostAdsFiles{},
 	).Error
 
 	if err != nil {
